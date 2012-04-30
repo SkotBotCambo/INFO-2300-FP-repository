@@ -6,3 +6,37 @@ background-image:url('../graphics/background.jpg');
 #main{
 width:1280px;
 }
+
+
+/* NAVBAR */
+#menu {width:100%; float:left;
+        overflow:hidden; position:absolute;
+        top:350px;}
+#menu ul {margin:0; padding:0; float:left;
+        position:relative; left:50%; text-align:center;}
+#menu ul li {display:inline; 
+            font-family: 'Lucida Calligraphy',cursive;}
+#menu ul li a{float:left; text-decoration: none;
+                color:#000000; padding: 10.5px 50px;
+                position:relative; right:50%;}
+#menu ul li a:hover{background-color: #F2F2F2;}
+
+
+/* about the baker */
+#aboutbakermain {
+    color:#000000;
+    width:600px;
+    margin:auto;
+    position:relative;
+    top:420px;
+    padding: 0 0 50px 0;
+}
+
+
+/* cupcakes page */
+#browseform {
+    width:300px;
+    position:relative;
+    top:400px;
+    color:#000000;
+}
