@@ -31,3 +31,12 @@ width:1280px;
     top:420px;
     padding: 0 0 50px 0;
 }
+
+
+/* cupcakes page */
+#browseform {
+    width:300px;
+    position:relative;
+    top:400px;
+    color:#000000;
+}
