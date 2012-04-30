@@ -14,10 +14,33 @@ session_start();
     include("includes/navbar.php");
     $file1= fopen("textfiles/contact_info.txt", 'a');
     $file2= fopen("textfiles/about_baker.txt", 'a');
-    
     ?>
-    <p>Information about the baker.</p>
+    <div id='aboutbakermain'>
+    <h2>Information about the baker.</h2>
     
+    <?php
+    $file1array = file("textfiles/contact_info.txt");
+        if (!$file1array) {
+          print("<p>Could not load file1 (contact_info)</p>\n");
+        }
+    
+    $file2array = file("textfiles/about_baker.txt");
+        if (!$file2array) {
+          print("<p>Could not load file2 (about_baker)</p>\n");
+        }
+    
+    foreach ($file1array as $info1) {
+        print("<p>" . $info1 . "</p>");
+    }
+    
+    print("<p>");
+    foreach ($file2array as $info2) {
+        print($info2 . "<br/>");
+    }
+    print("</p>");
+    ?>
+    
+    </div>
     <?php
     include("includes/footer.php");
     ?>
