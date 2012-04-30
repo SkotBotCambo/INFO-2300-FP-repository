@@ -1,5 +1,10 @@
 <?php
 
-print("<p>footer</p>");
+print("
+	<div id=\"footer\">
+		<p>footer</p>
+	</div>
+</div>\n"
+);
 
 ?>

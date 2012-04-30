@@ -1,5 +1,7 @@
 <?php
 
-print("<p>header</p>");
+print("
+<div id=\"main\">
+	<p>header</p>");
 
 ?>
