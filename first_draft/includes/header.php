@@ -2,6 +2,8 @@
 
 print("
 <div id=\"main\">
-	<p>header</p>");
+	<div id=\"header\">
+		<img src=\"graphics/headerlogo.png\" height=\"239\" width=\"540\" alt=\"header\" />
+	</div>");
 
 ?>

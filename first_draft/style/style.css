@@ -1,7 +1,20 @@
+/*
+http://colorschemedesigner.com/#0X329w0w0w0w0
+*/
+
 body {
     color:red;
 background-image:url('../graphics/background.jpg');
-background-repeat:no-repeat;
+background-repeat:repeat-x;
+}
+#header{
+position:relative;
+left:50%;
+margin-left:-270px;
+width:540px;
+height:239px;
+padding:0px;
+margin:0px;
 }
 
 #main{
@@ -12,11 +25,12 @@ width:1280px;
 /* NAVBAR */
 #menu {width:100%; float:left;
         overflow:hidden; position:absolute;
-        top:350px;}
+        top:260px;}
 #menu ul {margin:0; padding:0; float:left;
         position:relative; left:50%; text-align:center;}
 #menu ul li {display:inline; 
-            font-family: 'Lucida Calligraphy',cursive;}
+            font-family: 'Lucida Calligraphy',cursive;
+			font-size: 1.5em}
 #menu ul li a{float:left; text-decoration: none;
                 color:#000000; padding: 10.5px 50px;
                 position:relative; right:50%;}
