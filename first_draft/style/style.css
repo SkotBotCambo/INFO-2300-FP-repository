@@ -3,39 +3,93 @@ http://colorschemedesigner.com/#0X329w0w0w0w0
 */
 
 body {
-    color:red;
 background-image:url('../graphics/background.jpg');
 background-repeat:repeat-x;
 }
-#header{
-position:relative;
-left:50%;
-margin-left:-270px;
-width:540px;
-height:239px;
-padding:0px;
-margin:0px;
-}
 
 #main{
-width:1280px;
+width:100%;
 }
+
+/* HEADER */
+#header{
+height:239px;
+margin:0px;
+padding:0px;
+text-align:center;
+}
+
+
 
 
 /* NAVBAR */
-#menu {width:100%; float:left;
-        overflow:hidden; position:absolute;
-        top:260px;}
-#menu ul {margin:0; padding:0; float:left;
-        position:relative; left:50%; text-align:center;}
-#menu ul li {display:inline; 
-            font-family: 'Lucida Calligraphy',cursive;
-			font-size: 1.5em}
-#menu ul li a{float:left; text-decoration: none;
-                color:#000000; padding: 10.5px 50px;
-                position:relative; right:50%;}
-#menu ul li a:hover{background-color: #F2F2F2;}
+#menu {
+width:100%;
+float:left;
+overflow:hidden; position:absolute;
+top:260px;
+}
 
+#menu ul {
+margin:0;
+padding:0;
+float:left;
+position:relative;
+left:50%;
+text-align:center;
+}
+
+#menu ul li {
+display:inline;
+font-family: 'Lucida Calligraphy',cursive;
+font-size: 1.7em;
+font-weight: bold;
+}
+
+.nav {
+display:none;
+width:60px;
+height:60px;
+background-color: #FFFFFF;
+}
+
+#menu ul li a{
+float:left;
+text-decoration: none;
+color:#000000;
+padding: 10.5px 50px;
+position:relative;
+right:50%;
+z-index:10;
+}
+
+/* commenting out while I work on fade effect
+#menu ul li a:hover{
+background-color: #F2F2F2;
+}
+*/
+
+#maincontent {
+margin-top:100px;
+margin-right:550px;
+margin-left:20px;
+border:1px solid #000;
+background-color:#FFBF40;
+padding:5px;
+border-radius: 10px;
+-moz-border-radius:10px;
+box-shadow: 5px 5px 5px #888;
+}
+#maincontent p{
+
+}
+#mainpic {
+position:relative;
+top:-190px;
+width:500px;
+margin:0px 10px 10px 10px;
+float:right;
+}
 
 /* about the baker */
 #aboutbakermain {
@@ -54,4 +108,17 @@ width:1280px;
     position:relative;
     top:400px;
     color:#000000;
+}
+
+#footer {
+position:relative;
+left:50%;
+margin: 300px 10px 10px -300px;
+width:600px;
+background-color:#FFBF40;
+text-align:center;
+border:1px solid #000;
+border-radius: 10px;
+-moz-border-radius:10px;
+box-shadow: 5px 5px 5px #888;
 }
