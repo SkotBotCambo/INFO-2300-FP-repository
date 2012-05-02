@@ -58,9 +58,9 @@ session_start();
         if ($stmt->prepare($query)) {
             $stmt->bind_param('ss', $_POST['username'], "".hash('sha256', $_POST['password'].$gibberish));
             $result=$stmt->execute();
-        }
-        while ($row = $stmt->fetch_row()){
-            print($row);
+            while ($row = $stmt->fetch_row()){
+               print($row);
+            }
         }
         else print("It got here.");
     }
