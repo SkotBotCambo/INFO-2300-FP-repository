@@ -4,10 +4,7 @@ http://colorschemedesigner.com/#0X329w0w0w0w0
 
 body {
 background-image:url('../graphics/background.jpg');
-<<<<<<< HEAD
-=======
 background-repeat:repeat-x;
->>>>>>> scottofthescience/master
 }
 
 #main{
@@ -27,27 +24,6 @@ text-align:center;
 
 /* NAVBAR */
 #menu {
-<<<<<<< HEAD
-    width:100%; float:left;
-    overflow:hidden; position:absolute;
-    top:350px;
-}
-#menu ul {
-    margin:0; width:1200px; padding:0; float:left;
-    position:relative; left:50%; text-align:center;
-}
-#menu ul li {
-    display:inline; 
-    font-family: 'Lucida Calligraphy',cursive;
-}
-#menu ul li a{
-    float:left; text-decoration: none;
-    color:#000000; padding: 10.5px 50px;
-    position:relative; right:40%;
-}
-#menu ul li a:hover{
-    background-color: #F2F2F2;
-=======
 width:100%;
 float:left;
 overflow:hidden; position:absolute;
@@ -135,7 +111,6 @@ float:right;
     color:#000000;
 }
 
-<<<<<<< HEAD
 
 /* login page */
 #login {
@@ -156,7 +131,6 @@ float:right;
     left:400px;
 }
 
-=======
 #footer {
 position:relative;
 left:50%;
@@ -168,5 +142,4 @@ border:1px solid #000;
 border-radius: 10px;
 -moz-border-radius:10px;
 box-shadow: 5px 5px 5px #888;
->>>>>>> scottofthescience/master
 }
