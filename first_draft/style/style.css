@@ -149,6 +149,13 @@ float:right;
     top:400px;
     left:50px;
     width:300px;
+}
+#new_user_form {
+    position:relative;
+    top:150px;
+    left:400px;
+}
+
 =======
 #footer {
 position:relative;
