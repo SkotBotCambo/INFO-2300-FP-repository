@@ -97,8 +97,7 @@ float:right;
     width:600px;
     margin:auto;
     position:relative;
-    top:420px;
-    padding: 0 0 50px 0;
+    padding:60px;
 }
 
 
@@ -106,8 +105,8 @@ float:right;
 #browseform {
     width:300px;
     position:relative;
-    top:400px;
     color:#000000;
+    padding:60px;
 }
 
 
