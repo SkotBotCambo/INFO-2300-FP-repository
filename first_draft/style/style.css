@@ -87,6 +87,11 @@ font-family: 'Sunshiney', cursive;
 font-size: 1.5em;
 }
 
+#menu div a{
+text-decoration:none;
+color: #000000;
+}
+
 #maincontent {
 margin-top:100px;
 margin-right:550px;
