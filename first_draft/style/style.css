@@ -24,51 +24,68 @@ text-align:center;
 
 /* NAVBAR */
 #menu {
-width:100%;
-float:left;
-overflow:hidden; position:absolute;
+position:relative;
+margin-left:-450px;
+left:50%;
+width:900px;
+float:left;	 
+position:absolute;
 top:260px;
 }
 
-#menu ul {
-margin:0;
-padding:0;
-float:left;
-position:relative;
-left:50%;
+#menu div{
+width:180px;
+height:60px;
 text-align:center;
 }
 
-#menu ul li {
-display:inline;
-font-family: 'Lucida Calligraphy',cursive;
-font-size: 1.7em;
-font-weight: bold;
+.home {
+position:absolute;
+left:30px;
+top:0px;
 }
 
-.nav {
-display:none;
-width:60px;
+.cupcakes{
+position:absolute;
+top:0px;
+left:210px;
+}
+
+.About_Us{
+position:absolute;
+top:0px;
+left:400px;
+}
+
+.Place_An_Order{
+position:absolute;
+top:0px;
+left:580px;
+}
+
+.User_Login{
+position:absolute;
+top:0px;
+left:760px;
+}
+
+#menu div img{
+position:absolute;
+top:0px;
+left:0px;
+opacity: 0;
+}
+
+#menu div p{
+display:block;
+position:absolute;
+top:-13px;
+left:0px;
+width:180px;
 height:60px;
-background-color: #FFFFFF;
+font-family: 'Sunshiney', cursive;
+font-size: 1.5em;
 }
-
-#menu ul li a{
-float:left;
-text-decoration: none;
-color:#000000;
-padding: 10.5px 50px;
-position:relative;
-right:50%;
-z-index:10;
->>>>>>> scottofthescience/master
-}
-
-/* commenting out while I work on fade effect
-#menu ul li a:hover{
-background-color: #F2F2F2;
-}
-*/
 
 #maincontent {
 margin-top:100px;
@@ -76,17 +93,16 @@ margin-right:550px;
 margin-left:20px;
 border:1px solid #000;
 background-color:#FFBF40;
+font-family: 'Happy Monkey', cursive;
 padding:5px;
 border-radius: 10px;
 -moz-border-radius:10px;
 box-shadow: 5px 5px 5px #888;
 }
-#maincontent p{
 
-}
 #mainpic {
 position:relative;
-top:-190px;
+top:-130px;
 width:500px;
 margin:0px 10px 10px 10px;
 float:right;
