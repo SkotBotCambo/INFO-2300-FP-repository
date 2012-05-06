@@ -119,6 +119,8 @@ session_start();
 	    $stmt2->setFetchMode(PDO::FETCH_ASSOC);
 	    	    
 	    if ($r=$stmt2->fetch()){
+                
+                /* if they are an admin, direct them to the admin.php page. */
 	        if ($r['admin']==1) {
 	   
     ?>
@@ -129,6 +131,7 @@ session_start();
     </div>
     <?php
 		}
+                /*if they are not an admin, direct them to the manage_account.php page. */
 		if ($r['admin']==0) {
 		    
 		 ?>
