@@ -8,6 +8,7 @@ include("includes/header.php");
 include("includes/navbar.php");
 //The content of this page will be kept in the database and called through mysqli query in PHP
 ?>
+<div id="body">
     <div id="browseform">
         <h3>Specialty Cupcakes</h3>
         <p>White Mountain Chocolate Cupcakes<br />
@@ -38,6 +39,7 @@ include("includes/navbar.php");
         Espresso<br/>
         </p>
     </div>
+</div>
     <?php
     include("includes/footer.php");
     ?>
