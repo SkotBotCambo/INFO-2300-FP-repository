@@ -6,6 +6,7 @@ include("includes/functions.php");
 docheader("Cupcake Country - Cupcake");
 include("includes/header.php");
 include("includes/navbar.php");
+//The content of this page will be kept in the database and called through mysqli query in PHP
 ?>
     <div id="browseform">
         <h3>Specialty Cupcakes</h3>

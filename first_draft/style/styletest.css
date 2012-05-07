@@ -119,8 +119,8 @@ float:right;
     width:600px;
     margin:auto;
     position:relative;
-    top:420px;
-    padding: 0 0 50px 0;
+	top:60px;
+    padding:0px 0px 60px 0px;
 }
 
 
@@ -128,28 +128,38 @@ float:right;
 #browseform {
     width:300px;
     position:relative;
-    top:400px;
     color:#000000;
+    padding:60px;
 }
 
 
 /* login page */
 #login {
     position:relative;
-    top:400px;
     left:50px;
     width:300px;
+    top:80px;
 }
 #signup {
     position:relative;
-    top:400px;
     left:50px;
     width:300px;
 }
 #new_user_form {
     position:relative;
-    top:150px;
+    top:-160px;
     left:400px;
+}
+
+/* Admin page */
+#adminbody{
+    padding:60px;
+}
+
+
+/* Manage Account page */
+#managebody{
+    padding:60px;
 }
 
 /*place_an_order page */

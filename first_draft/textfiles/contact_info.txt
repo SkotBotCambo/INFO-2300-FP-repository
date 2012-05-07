@@ -1,3 +1,0 @@
-This is contact information like
-Telephone: 555-1234
-email: someone@cornell.edu

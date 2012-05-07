@@ -22,6 +22,11 @@ include("includes/navbar.php");
 </div>
 
 <?php
+
+/*When the form is done and checked through javascript,
+ PHP will use mysqli to connect with the database and enter tuples for the orders
+ and an e-mail will be sent to the administrator to inform them that an order has been placed and the client is awaiting correspondence
+*/
     include("includes/footer.php");
 ?>
 </body>

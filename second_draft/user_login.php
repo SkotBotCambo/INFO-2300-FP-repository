@@ -4,14 +4,20 @@ include("includes/functions.php");
 
 //this function writes the header for the html document and takes the title for the page as a parameter
 docheader("Cupcake Country - User Login");
+
 include("includes/header.php");
 include("includes/navbar.php");
 include("includes/passwords.php");
+
+//connection to database
 $mysqli= new PDO("mysql:host=localhost; dbname=info230_SP12FP_Cupcake_Warriors", $dbname, $dbpassword);
+$mysqli2= new PDO("mysql:host=localhost; dbname=info230_SP12FP_Cupcake_Warriors", $dbname, $dbpassword);
+
+//case that logs out user
 if(isset($_GET['logout']) && $_GET['logout']=='yes'){
 	unset($_SESSION['logged_user']);
 	session_destroy();
-}
+    }
     
     /* if no one is logged in and no one has tried to log in */
     if(!isset($_POST['submit1']) && !isset($_POST['newsubmit']) && !isset($_SESSION['logged_user'])) {
@@ -103,15 +109,46 @@ if(isset($_GET['logout']) && $_GET['logout']=='yes'){
 	
     /* if they successfully created a new account or successfully logged in */
     if(isset($_SESSION['logged_user'])){
+	
+	/* figure out if they are an admim */
+	$query = "SELECT * FROM Users WHERE username = ?";
+	if ($stmt2= $mysqli2->prepare($query)) {
+	    $stmt2->execute(array($_SESSION['logged_user']));
+	    $stmt2->setFetchMode(PDO::FETCH_ASSOC);
+	    	    
+	    if ($r=$stmt2->fetch()){
+                
+                /* if they are an admin, direct them to the admin.php page. */
+	        if ($r['admin']==1) {
+	   
     ?>
     <div class="status">
-	<p>Login succesful!</p>
-        <p><a href="index.php">Back to home</a></p>
-	<p><a href="user_login.php?logout=yes">Sign out</a></p>
+	<script type="text/javascript">
+	    location.replace("admin.php");
+	</script>
     </div>
     <?php
+		}
+                /*if they are not an admin, direct them to the manage_account.php page. */
+		if ($r['admin']==0) {
+		    
+		 ?>
+    <div class="status">
+	<script type="text/javascript">
+	    location.replace("manage_account.php");
+	</script>
+    </div>
+    <?php
+		    
+		}
+		} else {
+	        print("<p>something went wrong</p>");
+	    }
+        } else print("it didn't prepare the statment right");
     }
     $mysqli= null;
+    $mysqli2= null;
+    include("includes/footer.php");
     ?>
 
 </body>

@@ -30,7 +30,9 @@ include("includes/passwords.php");
 	    <table>
 		<tr>
 		    <td><b>Update the company's contact information:</b></td>
+			<!--This will be taken care of through an SQL query in PHP -->
 		    <td><b>Update the information about the baker and the company:</b></td>
+			<!--This will be accomplished through an SQL query using PHP -->
 		</tr>
 		<tr>
 		    <td><textarea rows="10" cols="50" name="contactinfo">
@@ -63,6 +65,7 @@ include("includes/passwords.php");
         </div>
         <div id="addAdmin">
             <p>This is where the admin can make clients an admin</p>
+			<!--This will be done through an SQL query -->
         </div>
      </div>
         <?php
