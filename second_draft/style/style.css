@@ -11,6 +11,13 @@ background-repeat:repeat-x;
 width:100%;
 }
 
+/* General Content */
+#body {
+position:relative;
+top:100px;
+margin:10px 0px 10px 0px;
+}
+
 /* HEADER */
 #header{
 height:239px;
@@ -129,7 +136,8 @@ float:right;
     width:300px;
     position:relative;
     color:#000000;
-    padding:60px;
+    padding:0px;
+	margin-left:30px;
 }
 
 
