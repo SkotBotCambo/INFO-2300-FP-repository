@@ -1,22 +1,20 @@
 <?php
 session_start();
-?>
+include("includes/functions.php");
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Country Cupcakes</title>
-    <link rel="stylesheet" href="style/style.css" type="text/css"/>
-</head>
-<body>
-    
-    <?php
-    include("includes/header.php");
-    include("includes/navbar.php");
-    include("includes/passwords.php");
-    $mysqli= new PDO("mysql:host=localhost; dbname=info230_SP12FP_Cupcake_Warriors", $dbname, $dbpassword);
-    $mysqli2= new PDO("mysql:host=localhost; dbname=info230_SP12FP_Cupcake_Warriors", $dbname, $dbpassword);
-    if(isset($_GET['logout']) && $_GET['logout']=='yes'){
+//this function writes the header for the html document and takes the title for the page as a parameter
+docheader("Cupcake Country - User Login");
+
+include("includes/header.php");
+include("includes/navbar.php");
+include("includes/passwords.php");
+
+//connection to database
+$mysqli= new PDO("mysql:host=localhost; dbname=info230_SP12FP_Cupcake_Warriors", $dbname, $dbpassword);
+$mysqli2= new PDO("mysql:host=localhost; dbname=info230_SP12FP_Cupcake_Warriors", $dbname, $dbpassword);
+
+//case that logs out user
+if(isset($_GET['logout']) && $_GET['logout']=='yes'){
 	unset($_SESSION['logged_user']);
 	session_destroy();
     }

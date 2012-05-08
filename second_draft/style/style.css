@@ -51,21 +51,10 @@ top:0px;
 left:210px;
 }
 
-<<<<<<< HEAD
 .About_Us{
 position:absolute;
 top:0px;
 left:400px;
-=======
-#menu ul li a{
-float:left;
-text-decoration: none;
-color:#000000;
-padding: 10.5px 50px;
-position:relative;
-right:50%;
-z-index:10;
->>>>>>> 6358b6d68d3b3197306f1d3939e8a38157b702a9
 }
 
 .Place_An_Order{
@@ -130,7 +119,8 @@ float:right;
     width:600px;
     margin:auto;
     position:relative;
-    padding:60px;
+	top:60px;
+    padding:0px 0px 60px 0px;
 }
 
 
@@ -173,11 +163,35 @@ float:right;
     padding:60px;
 }
 
+/*place_an_order page */
+#creator{
+position:relative;
+top:40px;
+width:100%;
+text-align:center;
+}
 
-/* footer */
+#creator div{
+margin:auto;
+background-color:#FFBF40;
+border-radius: 10px;
+-moz-border-radius:10px;
+box-shadow: 5px 5px 5px #888;
+}
+
+#display {
+height:400px;
+width:400px;
+}
+
+.form {
+width:400px;
+}
+
 #footer {
 position:relative;
-margin: auto;
+left:50%;
+margin: 300px 10px 10px -300px;
 width:600px;
 background-color:#FFBF40;
 text-align:center;
