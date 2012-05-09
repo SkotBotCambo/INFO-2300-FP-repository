@@ -91,8 +91,10 @@ if(isset($_GET['logout']) && $_GET['logout']=='yes'){
 		$city=$_POST['city'];
 		$state=$_POST['state'];
 		$zipcode=$_POST['zipcode'];
+		$email=$_POST['email'];
+		$phone=$_POST['phone'];
 		
-                $success=$stmt->execute(array($address, $city, $state, $zipcode, $newusername, $u_name, $newpassword));
+                $success=$stmt->execute(array($address, $city, $state, $zipcode, $email, $phone, $newusername, $u_name, $newpassword));
                 
 		/* check if their submitted username and password match one in the database */
                 if ($success){
