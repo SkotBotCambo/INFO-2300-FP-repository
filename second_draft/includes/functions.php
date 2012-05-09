@@ -10,6 +10,7 @@ function docheader($title){
     <link rel=\"stylesheet\" href=\"style/style.css\" type=\"text/css\"/>
 	<link href='http://fonts.googleapis.com/css?family=Sunshiney|Happy+Monkey' rel='stylesheet' type='text/css'>
 	<script type=\"text/javascript\" src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js\"></script>
+	<script type=\"text/javascript\" src=\"includes/js_form_check.js\"></script>
 </head>
 <body>
 	");
