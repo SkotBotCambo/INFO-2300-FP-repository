@@ -8,7 +8,7 @@
 	    <table>
 		<tr>
 		    <td>Username:</td>
-		    <td><input type="text" name="newusername" onchange="check_availability" /></td>
+		    <td><input type="text" name="newusername" id="NewUsername" onkeyup="availability()"  /></td>
 		    <td id="username_availability"></td>
 		</tr>
 		<tr>
