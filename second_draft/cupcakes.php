@@ -6,42 +6,49 @@ include("includes/functions.php");
 docheader("Cupcake Country - Cupcake");
 include("includes/header.php");
 include("includes/navbar.php");
+include("includes/passwords.php");
+
+
 //The content of this page will be kept in the database and called through mysqli query in PHP
+print("<div id=\"browseform\">\n");
+print("<h3>Specialty Cupcakes</h3>\n<p>");
+$mysqli= new PDO("mysql:host=localhost; dbname=info230_SP12FP_Cupcake_Warriors", $dbname, $dbpassword);
+$query= "SELECT sc_name FROM Spec_Cupcakes";
+$result= $mysqli->query($query);
+while ($row= $result->fetch(PDO::FETCH_ASSOC)){
+    foreach ($row as $index=>$data){
+       print($data . "<br/>\n");
+    }
+}
+print("</p>");
+
+print("<h3>Flavors</h3>\n<p>");
+$mysqli3= new PDO("mysql:host=localhost; dbname=info230_SP12FP_Cupcake_Warriors", $dbname, $dbpassword);
+$query= "SELECT fl_name FROM Flavors";
+$result= $mysqli3->query($query);
+while ($row= $result->fetch(PDO::FETCH_ASSOC)){
+    foreach ($row as $index=>$data){
+       print($data . "<br/>\n");
+    }
+}
+print("</p>");
+
+
+print("<h3>Icings</h3>\n<p>");
+$mysqli2= new PDO("mysql:host=localhost; dbname=info230_SP12FP_Cupcake_Warriors", $dbname, $dbpassword);
+$query= "SELECT ic_name FROM Icing";
+$result= $mysqli2->query($query);
+while ($row= $result->fetch(PDO::FETCH_ASSOC)){
+    foreach ($row as $index=>$data){
+       print($data . "<br/>\n");
+    }
+}
+print("</p>");
 ?>
-<div id="body">
-    <div id="browseform">
-        <h3>Specialty Cupcakes</h3>
-        <p>White Mountain Chocolate Cupcakes<br />
-        Hummingbird Swirls<br/>
-        Sticky Pecan Upsidedown Cupcake<br/>
-        Lemon Coconut Snowballs<br/>
-        </p>
-        <h3>Cake Flavors</h3>
-        <p>Chocolate<br/>
-        Banana Pecan and Pinapple<br/>
-        Sticky Pecan<br/>
-        White<br/>
-        Vanilla<br/>
-        Red Velvet<br/>
-        Caramel<br/>
-        Green Tea<br/>
-        Cookies and Cream<br/>
-        </p>
-        <h3>Icing Flavors</h3>
-        <p>Meringe<br/>
-        Cream Cheese<br/>
-        Cococut<br/>
-        Chocolate<br/>
-        Green Tea<br/>
-        Lemon<br/>
-        Strawberry<br/>
-        Plain<br/>
-        Espresso<br/>
-        </p>
+        
     </div>
-</div>
-    <?php
-    include("includes/footer.php");
-    ?>
+<?php
+include("includes/footer.php");
+?>
 </body>
 </html>
