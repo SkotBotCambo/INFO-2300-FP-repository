@@ -1,12 +1,19 @@
 <?php
 session_start();
-include("includes/functions.php");
+?>
 
-//this function writes the header for the html document and takes the title for the page as a parameter
-docheader("Cupcake Country - Manage Account");
-include("includes/header.php");
-include("includes/navbar.php");
-include("includes/passwords.php");
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Country Cupcakes</title>
+    <link rel="stylesheet" href="style/style.css" type="text/css"/>
+</head>
+<body>
+    
+    <?php
+    include("includes/header.php");
+    include("includes/navbar.php");
+    include("includes/passwords.php");
 ?>        
     <div id="managebody">    
         <h1>Manage Account</h1>
@@ -22,7 +29,7 @@ include("includes/passwords.php");
         <?php
 
     include("includes/footer.php");
-?>
+    ?>
 
 </body>
 </html>
