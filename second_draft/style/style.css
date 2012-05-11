@@ -138,37 +138,198 @@ float:right;
     color:#000000;
     padding:0px;
 	margin-left:30px;
+	margin-top:80px;
+    float:left;
+}
+#cupcakediv {
+    width:750px;
+    border:5px solid;
+    clear:right;
+    height:600px;
+    background-color: #9f2534;
+    margin:80px;
+    position:relative;
+    left:300px;
 }
 
 
 /* login page */
+#user_login_body {
+    width:800px;
+    margin:auto;
+}
 #login {
+    padding:15px;
     position:relative;
     left:50px;
     width:300px;
-    top:80px;
+    top:103px;
+    border:1px solid #000;
+    background-color:#FFBF40;
+    font-family: 'Happy Monkey', cursive;
+    border-radius: 10px;
+    -moz-border-radius:10px;
+    box-shadow: 5px 5px 5px #888;
 }
 #signup {
+    padding:15px;
     position:relative;
     left:50px;
     width:300px;
+    border:1px solid #000;
+    background-color:#FFBF40;
+    font-family: 'Happy Monkey', cursive;
+    border-radius: 10px;
+    -moz-border-radius:10px;
+    box-shadow: 5px 5px 5px #888;
 }
 #new_user_form {
+    padding:15px;
     position:relative;
-    top:-160px;
+    width:400px;
+    top:-178px;
     left:400px;
+    border:1px solid #000;
+    background-color:#FFBF40;
+    font-family: 'Happy Monkey', cursive;
+    border-radius: 10px;
+    -moz-border-radius:10px;
+    box-shadow: 5px 5px 5px #888;
+}
+
+.error #new_user_form {
+    padding:15px;
+    position:relative;
+    width:400px;
+    top:-215px;
+    left:400px;
+    border:1px solid #000;
+    background-color:#FFBF40;
+    font-family: 'Happy Monkey', cursive;
+    border-radius: 10px;
+    -moz-border-radius:10px;
+    box-shadow: 5px 5px 5px #888;
 }
 
 
 /* Admin page */
 #adminbody{
     padding:60px;
+    width:1180px;
+    height:700px;
+    font-family: 'Happy Monkey', cursive;
+}
+#adminbody p {
+    text-align:right;
+    margin: 0 40px 10px 0;
+    position:relative;
+    top:-30px;
 }
 
+#adminbody a{
+    color:#000000;
+}
+
+#adminbody a:hover{
+    font-size:120%;}
+
+#addspecial {
+    padding:15px;
+    width:450px;
+    border:1px solid #000;
+    background-color:#FFBF40;
+    font-family: 'Happy Monkey', cursive;
+    border-radius: 10px;
+    -moz-border-radius:10px;
+    box-shadow: 5px 5px 5px #888;
+    float:left;
+}
+
+#updateabout {
+    padding:15px;
+    width:620px;
+    border:1px solid #000;
+    background-color:#FFBF40;
+    font-family: 'Happy Monkey', cursive;
+    border-radius: 10px;
+    -moz-border-radius:10px;
+    box-shadow: 5px 5px 5px #888;
+    float:left;
+    margin:0 0 0 20px;
+}
+
+#addAdmin {
+    padding:15px;
+    border:1px solid #000;
+    background-color:#FFBF40;
+    font-family: 'Happy Monkey', cursive;
+    border-radius: 10px;
+    -moz-border-radius:10px;
+    box-shadow: 5px 5px 5px #888;
+    float:left;
+    margin: 20px 0 0 20px;
+    width: 620px;
+}
+
+#vieworders {
+    padding:15px;
+    border:1px solid #000;
+    background-color:#FFBF40;
+    font-family: 'Happy Monkey', cursive;
+    border-radius: 10px;
+    -moz-border-radius:10px;
+    box-shadow: 5px 5px 5px #888;
+    margin: 20px 0 0 20px;
+    width: 620px;
+    float: left;
+    
+}
 
 /* Manage Account page */
 #managebody{
     padding:60px;
+    height:600px;
+    font-family: 'Happy Monkey', cursive;
+}
+
+#managetop{
+    text-align:right;
+    margin: 0 40px 10px 0;
+    position:relative;
+    top:-30px;
+}
+
+#managetop a{
+    color:#000000;
+}
+
+#managetop a:hover{
+    font-size:120%;}
+
+#pastorders {
+    padding:15px;
+    width:500px;
+    border:1px solid #000;
+    background-color:#FFBF40;
+    font-family: 'Happy Monkey', cursive;
+    border-radius: 10px;
+    -moz-border-radius:10px;
+    box-shadow: 5px 5px 5px #888;
+    float:left;
+    margin:0 20px 0 0;
+}
+
+#updateinfo {
+    padding:15px;
+    width:500px;
+    border:1px solid #000;
+    background-color:#FFBF40;
+    font-family: 'Happy Monkey', cursive;
+    border-radius: 10px;
+    -moz-border-radius:10px;
+    box-shadow: 5px 5px 5px #888;
+    float:left;
+    margin:0 0 0 20px;
 }
 
 /*place_an_order page */
@@ -198,8 +359,7 @@ width:400px;
 
 #footer {
 position:relative;
-left:50%;
-margin: 300px 10px 10px -300px;
+margin:auto;
 width:600px;
 background-color:#FFBF40;
 text-align:center;
