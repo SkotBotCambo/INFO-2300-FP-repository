@@ -8,10 +8,11 @@ docheader("Cupcake Country - User Login");
 include("includes/header.php");
 include("includes/navbar.php");
 include("includes/passwords.php");
-
+print("<div id=\"user_login_body\">");
 //connection to database
 $mysqli= new PDO("mysql:host=localhost; dbname=info230_SP12FP_Cupcake_Warriors", $dbname, $dbpassword);
 $mysqli2= new PDO("mysql:host=localhost; dbname=info230_SP12FP_Cupcake_Warriors", $dbname, $dbpassword);
+$mysqli4= new PDO("mysql:host=localhost; dbname=info230_SP12FP_Cupcake_Warriors", $dbname, $dbpassword);
 
 //case that logs out user
 if(isset($_GET['logout']) && $_GET['logout']=='yes'){
@@ -82,8 +83,8 @@ if(isset($_GET['logout']) && $_GET['logout']=='yes'){
 	}
 	
     if(isset($_POST['newsubmit'])){
-	$query = "INSERT INTO Users VALUES (?, ?, ?, ?, ?, ?, ?, 0)";
-            if ($stmt= $mysqli->prepare($query)) {
+	$query = "INSERT INTO Users VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 0)";
+            if ($stmt4= $mysqli4->prepare($query)) {
 		$newusername=$_POST['newusername'];
 		$newpassword=hash('sha256', $_POST['newpassword'].$gibberish);
 		$u_name=$_POST['u_name'];
@@ -93,8 +94,8 @@ if(isset($_GET['logout']) && $_GET['logout']=='yes'){
 		$zipcode=$_POST['zipcode'];
 		$email=$_POST['email'];
 		$phone=$_POST['phone'];
-		
-                $success=$stmt->execute(array($address, $city, $state, $zipcode, $email, $phone, $newusername, $u_name, $newpassword));
+		// need to find a way to make $success false if any of the fields were left empty...
+                $success=$stmt4->execute(array($address, $city, $state, $zipcode, $phone, $email, $newusername, $u_name, $newpassword));
                 
 		/* check if their submitted username and password match one in the database */
                 if ($success){
@@ -104,6 +105,7 @@ if(isset($_GET['logout']) && $_GET['logout']=='yes'){
 		    } else $_SESSION['logged_user'] = $_POST['newusername'];
                 } else {
 		    $sessionlog = FALSE;
+		    include("includes/new_user_form.php");
                 }
             } else print("It didn't prepare the statement right.");
     }
@@ -146,10 +148,11 @@ if(isset($_GET['logout']) && $_GET['logout']=='yes'){
 		} else {
 	        print("<p>something went wrong</p>");
 	    }
-        } else print("it didn't prepare the statment right");
+        } else print("<p>It didn't prepare the statment right</p>");
     }
     $mysqli= null;
     $mysqli2= null;
+    print("</div>");
     include("includes/footer.php");
     ?>
 

@@ -6,18 +6,18 @@
 	$query= "SELECT ic_name FROM Icing";
 	$result2= $mysqli2->query($query);
 ?>
-        <div id="addspecial">
-            <p>This is where the form will go for adding a specialty cupcake</p>
+        
+            <h3>Add a Specialty Cupcake:</h3>
 	    <form action="admin.php" method="post" enctype="multipart/form-data">
 		<ol>
 		    <li>What is this Specialty Cupcake's country singer's name?<input type="text" name="sc_name"/></li>
 		    <li>If the flavor of the cake is already one you offer, please choose it.
 			<select name="oldfl_name">
-		        <option value="nothing"></option>
+				<option value="nothing"></option>
 <?php
 	while ($row= $result->fetch(PDO::FETCH_ASSOC)){
 	    foreach ($row as $index=>$data){
-		print("<option value\"" . $data . "\">" . $data . "</option>\n");
+		print("<option value=\"" . $data . "\">" . $data . "</option>\n");
 	    }
 	}
 ?>
@@ -30,7 +30,7 @@
 <?php
 	while ($row2= $result2->fetch(PDO::FETCH_ASSOC)){
 	    foreach ($row2 as $index2=>$data2){
-		print("<option value\"" . $data2 . "\">" . $data2 . "</option>\n");
+		print("<option value=\"" . $data2 . "\">" . $data2 . "</option>\n");
 	    }
 	}
 ?>
@@ -42,6 +42,5 @@
 		    <li>Finally, please upload a photo of your new Specialty cupcake.<br/>
 		    <input type="file" name="newphoto"/><br/></li>
 		</ol>
-		<input type="submit" name="Uploadphoto" value="Add Cupcake to Menu"/></p>
+		<p><input type="submit" name="Uploadphoto" value="Add Cupcake to Menu"/></p>
 	    </form>
-	</div>

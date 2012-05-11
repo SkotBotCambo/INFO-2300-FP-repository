@@ -45,6 +45,8 @@ while ($row= $result->fetch(PDO::FETCH_ASSOC)){
 }
 print("</p>");
 ?>
+    </div>
+    <div id="cupcakediv">
         
     </div>
     <?php
