@@ -19,10 +19,10 @@ include("includes/passwords.php");
 ?>
     <div id="adminbody">    
         <h1>Administrator</h1>
-        <p><a href="index.php">Back to home</a></p>
-	<p><a href="user_login.php?logout=yes">Sign out</a></p>
-    
+        <p><a href="index.php">Back to home</a><br/><a href="user_login.php?logout=yes">Sign out</a></p>
+    <div id="addspecial">
 <?php
+
     /* if the admin tried to upload a new cupcake */
     if(isset($_POST['Uploadphoto'])){
 	
@@ -90,7 +90,7 @@ include("includes/passwords.php");
 	    }
 	}
 	else {
-	    print("You did not fill out the form correctly");
+	    print("<p>**You did not fill out the form correctly**<p>");
 	    
 	    /*Adding a specialty cupcake form */
 	    include("includes/new_spec_form.php");
@@ -101,7 +101,7 @@ include("includes/passwords.php");
 include("includes/new_spec_form.php");
     }
 ?>
-	
+	</div>
 	<!--Updating the 'About the Baker' page using textfiles -->
         <div id="updateabout">
 	    <form action="admin.php" method="post">
@@ -111,7 +111,7 @@ include("includes/new_spec_form.php");
 		    <td><b>Update the information about the baker and the company:</b></td>
 		</tr>
 		<tr>
-		    <td><textarea rows="10" cols="50" name="contactinfo">
+		    <td><textarea rows="15" cols="40" name="contactinfo">
 			<?php
 			$file1array = file("textfiles/contact_info.txt");
 			if (!$file1array) {
@@ -121,7 +121,7 @@ include("includes/new_spec_form.php");
 			        print($info1);
 				}
 			}?></textarea></td>
-		    <td><textarea rows="10" cols="50" name="aboutbaker">
+		    <td><textarea rows="15" cols="40" name="aboutbaker">
 			<?php
 			$file2array = file("textfiles/about_baker.txt");
 			if (!$file2array) {
@@ -133,15 +133,45 @@ include("includes/new_spec_form.php");
 			}?></textarea></td>
 		</tr>
 	    </table>
-	    <input type="submit" name="updatefiles" value="Update Files"/>
+	    <p>
+	    <?php
+    if(isset($_POST['updatefiles'])){
+	print("Your files have been updated. You can go to the 'About the Baker' page to see your changes.<br/>");
+    }
+?>
+	    <input type="submit" name="updatefiles" value="Update Files"/></p>
 	    </form>
         </div>
-        <div id="vieworders">
-            <p>This is where all orders yet to be fulfilled will be displayed</p>
-			<!--This will be done through an SQL query -->
-        </div>
+        
         <div id="addAdmin">
             <p>This is where the admin can make clients an admin</p>
+			<!--This will be done through an SQL query -->
+        <?php
+$mysqli6= new PDO("mysql:host=localhost; dbname=info230_SP12FP_Cupcake_Warriors", $dbname, $dbpassword);
+if (isset($_POST['addAdmin'])){
+    if($_POST['newadmin'] != "nothing"){
+	print($_POST['newadmin'] . "is now an Administrator!");
+	$mysqli6->query("UPDATE Users SET admin=1 WHERE u_name=\"". $_POST['newadmin'] . "\"");
+    }
+}
+$query= "SELECT u_name FROM Users WHERE admin = 0";
+$result6= $mysqli6->query($query);
+print("<form action=\"admin.php\" method=\"post\">");
+print("<select name=\"newadmin\">\n");
+    print("<option value=\"nothing\"></option>\n");
+    while ($row= $result6->fetch(PDO::FETCH_ASSOC)){
+	print("yessssss");
+	foreach ($row as $index=>$data){
+	    print("<option value\"" . $data . "\">" . $data . "</option>\n");
+        }
+    }
+print("</select><br/>");
+print("<input type=\"submit\" name=\"addAdmin\" value=\"Make them an Admin\"/>");
+print("</form>");
+?>
+        </div>
+	<div id="vieworders">
+            <p>This is where all orders yet to be fulfilled will be displayed</p>
 			<!--This will be done through an SQL query -->
         </div>
      </div>
@@ -153,6 +183,5 @@ include("includes/new_spec_form.php");
     $mysqli5= null;
     include("includes/footer.php");
     ?>
-
 </body>
 </html>
