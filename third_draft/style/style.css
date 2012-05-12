@@ -401,6 +401,32 @@ opacity:0;
 border:1px solid #000;
 }
 
+/*place_an_order page */
+#creator{
+position:relative;
+top:60px;
+width:100%;
+}
+
+#specialties{
+border:1px solid #000;
+}
+
+#icing{
+opacity:0;
+border:1px solid #000;
+}
+
+#flavor{
+opacity:0;
+border:1px solid #000;
+}
+
+#colors{
+opacity:0;
+border:1px solid #000;
+}
+
 #display {
 position:relative;
 height:400px;
