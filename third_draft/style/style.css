@@ -3,8 +3,9 @@ http://colorschemedesigner.com/#0X329w0w0w0w0
 */
 
 body {
-background-image:url('../graphics/background.jpg');
+background-image:url('../graphics/backgroundfade.png');
 background-repeat:repeat-x;
+background-color:#d0bca1;
 }
 
 #main{
@@ -41,6 +42,7 @@ top:260px;
 }
 
 #menu div{
+background-image:url('../graphics/buttonback.png');
 width:180px;
 height:60px;
 text-align:center;
@@ -394,30 +396,90 @@ border-radius: 10px;
     margin:0 0 0 20px;
 }
 
-/*place_an_order page */
-#creator{
-position:relative;
-top:40px;
-width:100%;
-text-align:center;
+#instructions{
+opacity:0;
+border:1px solid #000;
 }
 
-#creator div{
-margin:auto;
+#display {
+position:relative;
+height:400px;
+width:400px;
+border:1px solid #000;
+position:relative;
+margin: 20px auto 0 auto;
 background-color:#FFBF40;
 border-radius: 10px;
 -moz-border-radius:10px;
 box-shadow: 5px 5px 5px #888;
 }
 
-#display {
-height:400px;
-width:400px;
+#display img{
+position:absolute;
+top:0px;
+left:0px;
 }
 
-.form {
-width:400px;
+#wrapper_back{
+z-index:0;
 }
+
+#wrapper_front {
+z-index:2;
+}
+
+#flavorpic{
+z-index:1;
+opacity: 0;
+}
+
+#icingpic{
+z-index:3;
+opacity: 0;
+}
+
+.colorsbox{
+background-color:#888;
+z-index: 4;
+width:30px;
+height:30px;
+margin-top:5px;
+border:1px solid #000;
+box-shadow: 5px 5px 5px #888;
+}
+
+#colorsdiv{
+position:absolute;
+top:10px;
+left:10px;
+}
+
+.orderform {
+width:650px;
+position:relative;
+margin: 20px auto 0 auto;
+background-color:#FFBF40;
+font-family: 'Happy Monkey', cursive;
+border-radius: 10px;
+-moz-border-radius:10px;
+box-shadow: 5px 5px 5px #888;
+}
+
+.orderform input {
+margin-left:10px;
+}
+
+#submit{
+position:relative;
+left:50%;
+margin-left:-30px;
+}
+
+.orderform table{
+width:600px;
+margin:5px auto 10px auto
+}
+/*end of place_an_order page */
 
 #footer {
 position:relative;

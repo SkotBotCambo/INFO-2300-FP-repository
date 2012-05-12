@@ -8,7 +8,7 @@ function docheader($title){
 <head>
     <title>$title</title>
     <link rel=\"stylesheet\" href=\"style/style.css\" type=\"text/css\"/>
-	<link href='http://fonts.googleapis.com/css?family=Sunshiney|Happy+Monkey' rel='stylesheet' type='text/css'/>
+	<link href='http://fonts.googleapis.com/css?family=Sunshiney|Happy+Monkey' rel='stylesheet' type='text/css'>
 	<script type=\"text/javascript\" src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js\"></script>
 	<script type=\"text/javascript\" src=\"includes/js_functions.js\"></script>
 </head>
@@ -16,19 +16,16 @@ function docheader($title){
 	");
 }
 
-
-
-
-// fills the cupcakediv with information on the Cupcakes page.
-function fillwithspec($spec_cake){
-	
-
-}
-
-function fillwithflavor($flavor){
-	
-}
-
-function fillwithicing($icing){
-	
+//queries and returns specialty cupcake names and their descriptions in an associative array
+//$specialties['sc_name'] = ['description']
+function queryspecialties() {
+	include("includes/mysql_config.php");
+	$mysqli = new mysqli($dbserver, $dbusername, $dbpassword, $dbname);
+	$spec_query = "SELECT sc_name, description FROM Spec_Cupcakes";
+	$sc_array = $mysqli->query($spec_query);
+	while ($row = $sc_array->fetch_assoc()){
+		$specialties[$row['sc_name']] = $row['description'];
+	}
+	$mysqli->close();
+	return $specialties;
 }

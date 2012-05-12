@@ -8,19 +8,47 @@ docheader("Cupcake Country - Place An Order");
 include("includes/header.php");
 include("includes/navbar.php");
 ?>
+
 <div id="creator">
-<h1>Design Your Cupcake</h1>
-
-	<div id="display"></div>
-	<div class="form" id="flavor">
-		<p>Choose a flavor</p>
-		<form>
-			<input class="flavortarget" type="radio" name="flavor" value="chocolate" />Chocolate<br />
-			<input class="flavortarget" type="radio" name="flavor" value="vanilla" />Vanilla<br />
-		</form>
+	<div id="display">
+		<img id="wrapper_back" src="graphics/creator/wrapper_back.png" width="400" height="400" />
+		<img id="wrapper_front" src="graphics/creator/wrapper_front.png" width="400" height="400" />
+		<div id="colorsdiv"></div>
 	</div>
-</div>
+	<form>
+		<div class="orderform" id="specialties">
+		<table>
+			<th colspan="2">Choose one of our specialties or start a custom order</th>
+<?php
+	$specialties = queryspecialties();
+	//echo("array length is ".count($specialties));
+	$i = 0;
+	print("\t<tr>\n\t");
+	foreach($specialties as $name => $description){
+		if (($i%2 == 0) && ($i != 0)){
+			echo('
+	</tr>
+	<tr>
+		<td><input type="radio" name="specialties" value="'.$name.'" />'.$name."</td>\n\t");
+		} else {
+			echo('<td><input type="radio" name="specialties" value="'.$name.'" />'.$name."</td>\n\t");
+		}
+		$i++;
+	}
+	if($i%2 == 0){
+	echo("<tr>\n\t");
+	}
+	echo('<td><input type="radio" name="custom" value="custom" />Custom Cupcake</td>
+	</tr>');
+		
+?>
+	
 
+		</table>
+		</div>
+	</form>
+</div>
+<script type="text/javascript" src="includes/js_creator.js"></script>
 <?php
 
 /*When the form is done and checked through javascript,
