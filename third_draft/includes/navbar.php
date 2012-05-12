@@ -22,14 +22,5 @@
 		</div>
 	</div>
 	
-	<script type="text/javascript">
-		$(document).ready(function(){$("#menu div").hover(
-				function() {
-					$(this).find('img').stop().animate({"opacity" : "1"}, "slow");
-				},
-				function(){
-					$(this).find('img').stop().animate({"opacity" : "0"}, "slow");
-					});
-				});
-	</script>
+
 	
