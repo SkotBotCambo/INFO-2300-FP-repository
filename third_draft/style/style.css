@@ -1,0 +1,436 @@
+/*
+http://colorschemedesigner.com/#0X329w0w0w0w0
+*/
+
+body {
+background-image:url('../graphics/background.jpg');
+background-repeat:repeat-x;
+}
+
+#main{
+width:100%;
+}
+
+/* General Content */
+#body {
+position:relative;
+top:100px;
+margin:10px 0px 10px 0px;
+}
+
+/* HEADER */
+#header{
+height:239px;
+margin:0px;
+padding:0px;
+text-align:center;
+}
+
+
+
+
+/* NAVBAR */
+#menu {
+position:relative;
+margin-left:-450px;
+left:50%;
+width:900px;
+float:left;	 
+position:absolute;
+top:260px;
+}
+
+#menu div{
+width:180px;
+height:60px;
+text-align:center;
+}
+
+.home {
+position:absolute;
+left:30px;
+top:0px;
+}
+
+.cupcakes{
+position:absolute;
+top:0px;
+left:210px;
+}
+
+.About_Us{
+position:absolute;
+top:0px;
+left:400px;
+}
+
+.Place_An_Order{
+position:absolute;
+top:0px;
+left:580px;
+}
+
+.User_Login{
+position:absolute;
+top:0px;
+left:760px;
+}
+
+#menu div img{
+position:absolute;
+top:0px;
+left:0px;
+opacity: 0;
+}
+
+#menu div p{
+display:block;
+position:absolute;
+top:-13px;
+left:0px;
+width:180px;
+height:60px;
+font-family: 'Sunshiney', cursive;
+font-size: 1.5em;
+}
+
+#menu div a{
+text-decoration:none;
+color: #000000;
+}
+
+
+/* home page */
+#maincontent {
+margin-top:100px;
+margin-right:550px;
+margin-left:20px;
+border:1px solid #000;
+background-color:#FFBF40;
+font-family: 'Happy Monkey', cursive;
+padding:5px;
+border-radius: 10px;
+-moz-border-radius:10px;
+box-shadow: 5px 5px 5px #888;
+}
+
+#mainpic {
+border-radius: 10px;
+}
+
+#mainbody {
+    height:600px;
+    width:1100px;
+    margin:auto;
+}
+
+#mainpar {
+    position:relative;
+top:-200px;
+width:500px;
+height:375px;
+margin:0px 10px 10px 10px;
+float:right;
+border-radius: 10px;
+-moz-border-radius:10px;
+box-shadow: 5px 5px 5px #888;
+
+    border:1px solid;
+}
+
+/* about the baker */
+#aboutbakermain {
+    font-family: 'Happy Monkey', cursive;
+    color:#000000;
+    width:800px;
+    height:500px;
+    margin:auto;
+    position:relative;
+    top:60px;
+    padding:0px 0px 60px 0px;
+}
+
+#bakerbody {
+    padding:15px;
+    width:400px;
+    border:1px solid #000;
+    background-color:#FFBF40;
+    font-family: 'Happy Monkey', cursive;
+    border-radius: 10px;
+    -moz-border-radius:10px;
+    box-shadow: 5px 5px 5px #888;
+}
+
+#contactbody{
+    padding:15px;
+    width:350px;
+    margin-top:15px;
+    margin-bottom:15px;
+    border:1px solid #000;
+    background-color:#FFBF40;
+    font-family: 'Happy Monkey', cursive;
+    border-radius: 10px;
+    -moz-border-radius:10px;
+    box-shadow: 5px 5px 5px #888;
+}
+
+#bakingpar {
+    position:relative;
+    right:30px;
+    width:300px;
+    height:345px;
+    margin:0px 10px 10px 10px;
+    float:right;
+    border-radius: 10px;
+    -moz-border-radius:10px;
+    box-shadow: 5px 5px 5px #888;
+    border:1px solid;
+}
+
+#bakingpic {
+border-radius: 10px;
+}
+
+/* cupcakes page */
+#browseform {
+    width:300px;
+    position:relative;
+    color:#000000;
+    padding:0px;
+	margin-left:30px;
+	margin-top:80px;
+    float:left;
+}
+#cupcakediv {
+    width:750px;
+    border:5px solid;
+    clear:right;
+    height:600px;
+    background-color: #9f2534;
+    margin:80px;
+    position:relative;
+    left:300px;
+}
+
+
+/* login page */
+#user_login_body {
+    width:800px;
+    margin:auto;
+}
+#login {
+    padding:15px;
+    position:relative;
+    left:50px;
+    width:300px;
+    top:103px;
+    border:1px solid #000;
+    background-color:#FFBF40;
+    font-family: 'Happy Monkey', cursive;
+    border-radius: 10px;
+    -moz-border-radius:10px;
+    box-shadow: 5px 5px 5px #888;
+}
+#signup {
+    padding:15px;
+    position:relative;
+    left:50px;
+    width:300px;
+    border:1px solid #000;
+    background-color:#FFBF40;
+    font-family: 'Happy Monkey', cursive;
+    border-radius: 10px;
+    -moz-border-radius:10px;
+    box-shadow: 5px 5px 5px #888;
+}
+#new_user_form {
+    padding:15px;
+    position:relative;
+    width:400px;
+    top:-178px;
+    left:400px;
+    border:1px solid #000;
+    background-color:#FFBF40;
+    font-family: 'Happy Monkey', cursive;
+    border-radius: 10px;
+    -moz-border-radius:10px;
+    box-shadow: 5px 5px 5px #888;
+}
+
+.error #new_user_form {
+    padding:15px;
+    position:relative;
+    width:400px;
+    top:-215px;
+    left:400px;
+    border:1px solid #000;
+    background-color:#FFBF40;
+    font-family: 'Happy Monkey', cursive;
+    border-radius: 10px;
+    -moz-border-radius:10px;
+    box-shadow: 5px 5px 5px #888;
+}
+
+
+/* Admin page */
+#adminbody{
+    padding:60px;
+    width:1180px;
+    height:700px;
+    font-family: 'Happy Monkey', cursive;
+}
+#adminbody p {
+    text-align:right;
+    margin: 0 40px 10px 0;
+    position:relative;
+    top:-30px;
+}
+
+#adminbody a{
+    color:#000000;
+}
+
+#adminbody a:hover{
+    font-size:120%;}
+
+#addspecial {
+    padding:15px;
+    width:450px;
+    border:1px solid #000;
+    background-color:#FFBF40;
+    font-family: 'Happy Monkey', cursive;
+    border-radius: 10px;
+    -moz-border-radius:10px;
+    box-shadow: 5px 5px 5px #888;
+    float:left;
+}
+
+#updateabout {
+    padding:15px;
+    width:620px;
+    border:1px solid #000;
+    background-color:#FFBF40;
+    font-family: 'Happy Monkey', cursive;
+    border-radius: 10px;
+    -moz-border-radius:10px;
+    box-shadow: 5px 5px 5px #888;
+    float:left;
+    margin:0 0 0 20px;
+}
+
+#addAdmin {
+    padding:15px;
+    border:1px solid #000;
+    background-color:#FFBF40;
+    font-family: 'Happy Monkey', cursive;
+    border-radius: 10px;
+    -moz-border-radius:10px;
+    box-shadow: 5px 5px 5px #888;
+    float:left;
+    margin: 20px 0 0 20px;
+    width: 620px;
+}
+
+#vieworders {
+    padding:15px;
+    border:1px solid #000;
+    background-color:#FFBF40;
+    font-family: 'Happy Monkey', cursive;
+    border-radius: 10px;
+    -moz-border-radius:10px;
+    box-shadow: 5px 5px 5px #888;
+    margin: 20px 0 0 20px;
+    width: 620px;
+    float: left;
+    
+}
+
+/* Manage Account page */
+#managebody{
+    padding:60px;
+    height:600px;
+    font-family: 'Happy Monkey', cursive;
+    width:1100px;
+    margin:auto;
+}
+
+#managetop{
+    text-align:right;
+    margin: 0 40px 10px 0;
+    position:relative;
+    top:-30px;
+}
+
+#managetop a{
+    color:#000000;
+}
+
+#managetop a:hover{
+    font-size:120%;}
+
+#pastorders {
+    padding:15px;
+    width:500px;
+    border:1px solid #000;
+    background-color:#FFBF40;
+    font-family: 'Happy Monkey', cursive;
+    border-radius: 10px;
+    -moz-border-radius:10px;
+    box-shadow: 5px 5px 5px #888;
+    float:left;
+    margin:0 20px 0 0;
+}
+
+#updateinfo {
+    padding:15px;
+    width:450px;
+    border:1px solid #000;
+    background-color:#FFBF40;
+    font-family: 'Happy Monkey', cursive;
+    border-radius: 10px;
+    -moz-border-radius:10px;
+    box-shadow: 5px 5px 5px #888;
+    float:left;
+    margin:0 0 0 20px;
+}
+
+/*place_an_order page */
+#creator{
+position:relative;
+top:40px;
+width:100%;
+text-align:center;
+}
+
+#creator div{
+margin:auto;
+background-color:#FFBF40;
+border-radius: 10px;
+-moz-border-radius:10px;
+box-shadow: 5px 5px 5px #888;
+}
+
+#display {
+height:400px;
+width:400px;
+}
+
+.form {
+width:400px;
+}
+
+#footer {
+position:relative;
+margin:auto;
+width:600px;
+background-color:#FFBF40;
+text-align:center;
+border:1px solid #000;
+border-radius: 10px;
+-moz-border-radius:10px;
+box-shadow: 5px 5px 5px #888;
+}
+
+#username_availability {
+	width: 400px;
+	}
