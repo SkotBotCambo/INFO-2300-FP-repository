@@ -23,86 +23,85 @@ include("includes/passwords.php");
 
 <?php
 
-/* if they desire to edit their information and have submitted the form... */
-if(isset($_POST['newsubmit'])){
-    $username= $_POST['username'];
-    $u_name= $_POST['u_name'];
-    $address= $_POST['address'];
-    $city= $_POST['city'];
-    $state= $_POST['state'];
-    $zipcode= $_POST['zipcode'];
-    $email= $_POST['email'];
-    $phone= $_POST['phone'];
-    if (trim($_POST['password']) == "") {
-	$mysqli2= new PDO("mysql:host=localhost; dbname=info230_SP12FP_Cupcake_Warriors", $dbname, $dbpassword);
-	$query= "UPDATE Users SET username=?, u_name=?, Address=?, City=?, State=?, Zip=?, Email=?, Phone=? WHERE username=\"" . $_SESSION['logged_user'] . "\"";
-	if ($stmt2= $mysqli2->prepare($query)) {
-	    $success=$stmt2->execute(array($username, $u_name, $address, $city, $state, $zipcode, $email, $phone));
-	}
-    } else {
-	$newpassword=hash('sha256', $_POST['password'].$gibberish);
-	$mysqli2= new PDO("mysql:host=localhost; dbname=info230_SP12FP_Cupcake_Warriors", $dbname, $dbpassword);
-	$query= "UPDATE Users SET username=?, u_name=?, Address=?, City=?, State=?, Zip=?, Email=?, Phone=?, pswrd=? WHERE username=\"" . $_SESSION['logged_user'] . "\"";
-	if ($stmt2= $mysqli2->prepare($query)) {
-	    $success=$stmt2->execute(array($username, $u_name, $address, $city, $state, $zipcode, $email, $phone, $newpassword));
-	}
-    }
-    /* if all the queries were successful. */
-    if ($success) {
-	print("<div class=\"form\">\n<form action=\"manage_account.php\" method=\"post\">\n");
-        print("<table>\n<tr>\n<td>Username:</td>\n<td>" . $_SESSION['oldr']['username'] . "</td>\n</tr>\n");
-        print("<tr>\n<td>New password:</td>\n<td>". $_POST['password'] . "</td>\n</tr>\n");
-        print("<tr>\n<td>Name:</td>\n<td>" . $_SESSION['oldr']['u_name'] . "</td>\n</tr>\n");
-	print("<tr>\n<td>Address:</td>\n<td>" . $_SESSION['oldr']['Address'] . "</td>\n</tr>\n");
-	print("<tr>\n<td>City:</td>\n<td>" . $_SESSION['oldr']['City'] . "</td>\n</tr>\n");
-	print("<tr>\n<td>State:</td>\n<td>" . $_SESSION['oldr']['State'] . "</td>\n</tr>\n");
-	print("<tr>\n<td>Zipcode:</td>\n<td>" . $_SESSION['oldr']['Zip'] . "</td>\n</tr>\n");
-	print("<tr>\n<td>Email:</td>\n<td>" . $_SESSION['oldr']['Email'] . "</td>\n</tr>\n");
-	print("<tr>\n<td>Phone:</td>\n<td>" . $_SESSION['oldr']['Phone'] . "</td>\n</tr>\n");
-?>
-	    </table>
-	        <input type="submit" value="Edit" name="edit"/></p>
-	        </form>
-    	    </div>
+include('input_checking.php');
 
-<?php
+/* if they desire to edit their information and have submitted the form... */
+if(isset($_POST['submitedit'])){
+	
+    $username= sanatize($_POST['username']);
+    $u_name= sanatize($_POST['u_name']);
+    $address= sanatize($_POST['address']);
+    $city= sanatize($_POST['city']);
+    $state= sanatize($_POST['state']);
+    $zipcode= sanatize($_POST['zipcode']);
+    $email= sanatize($_POST['email']);
+    $phone= sanatize($_POST['phone']);
+	
+	$new = false;
+		
+	if (strcasecmp($username,$_SESSION['logged_user']) != 0){
+		$new = true;
+	}
+	
+if (user_check($username, $u_name, $address, $city, $state, $zipcode, $email, $phone, $new)) {
+
+	
+
+	if (trim($_POST['password']) == "") {
+		
+		$mysqli2= new PDO("mysql:host=localhost; dbname=info230_SP12FP_Cupcake_Warriors", $dbusername, $dbpassword);
+		$query= "UPDATE Users SET username=?, u_name=?, Address=?, City=?, State=?, Zip=?, Email=?, Phone=? WHERE username=\"" . $_SESSION['logged_user'] . "\"";
+		if ($stmt2= $mysqli2->prepare($query)) {
+			$success=$stmt2->execute(array($username, $u_name, $address, $city, $state, $zipcode, $email, $phone));
+		}
+	} else {
+		$newpassword=hash('sha256', sanatize($_POST['password']).$gibberish);
+		$mysqli2= new PDO("mysql:host=localhost; dbname=info230_SP12FP_Cupcake_Warriors", $dbusername, $dbpassword);
+		$query= "UPDATE Users SET username=?, u_name=?, Address=?, City=?, State=?, Zip=?, Email=?, Phone=?, pswrd=? WHERE username=\"" . $_SESSION['logged_user'] . "\"";
+		if ($stmt2= $mysqli2->prepare($query)) {
+			$success=$stmt2->execute(array($username, $u_name, $address, $city, $state, $zipcode, $email, $phone, $newpassword));
+		}
+	}
+		/* if all the queries were successful. */
+		if ($success) {
+		
+		$mysqli= new PDO("mysql:host=localhost; dbname=info230_SP12FP_Cupcake_Warriors", $dbusername, $dbpassword);
+		$query = "SELECT * FROM Users WHERE username = ?";
+		if ($stmt= $mysqli->prepare($query)) {
+			$stmt->execute(array($_SESSION['logged_user']));
+			$stmt->setFetchMode(PDO::FETCH_ASSOC);	    	    
+		if ($r=$stmt->fetch()){
+			$_SESSION['oldr']=$r;	
+		}
+		}
+		
+			print("<div class=\"form\">\n<form action=\"manage_account.php\" method=\"post\">\n");
+			print("<table>\n<tr>\n<td>Username:</td>\n<td>" . $_SESSION['oldr']['username'] . "</td>\n</tr>\n");
+			print("<tr>\n<td>New password:</td>\n<td>". $_POST['password'] . "</td>\n</tr>\n");
+			print("<tr>\n<td>Name:</td>\n<td>" . $_SESSION['oldr']['u_name'] . "</td>\n</tr>\n");
+			print("<tr>\n<td>Address:</td>\n<td>" . $_SESSION['oldr']['Address'] . "</td>\n</tr>\n");
+			print("<tr>\n<td>City:</td>\n<td>" . $_SESSION['oldr']['City'] . "</td>\n</tr>\n");
+			print("<tr>\n<td>State:</td>\n<td>" . $_SESSION['oldr']['State'] . "</td>\n</tr>\n");
+			print("<tr>\n<td>Zipcode:</td>\n<td>" . $_SESSION['oldr']['Zip'] . "</td>\n</tr>\n");
+			print("<tr>\n<td>Email:</td>\n<td>" . $_SESSION['oldr']['Email'] . "</td>\n</tr>\n");
+			print("<tr>\n<td>Phone:</td>\n<td>" . $_SESSION['oldr']['Phone'] . "</td>\n</tr>\n");
+		}
+	} else {
+		print ($_SESSION["error_feedback"]);
+	
+		include("includes/edit_form.php");
+
+	}
+
     }
-}
+
 
 else{
-$mysqli= new PDO("mysql:host=localhost; dbname=info230_SP12FP_Cupcake_Warriors", $dbname, $dbpassword);
-$query = "SELECT * FROM Users WHERE username = ?";
-if ($stmt= $mysqli->prepare($query)) {
-    $stmt->execute(array($_SESSION['logged_user']));
-    $stmt->setFetchMode(PDO::FETCH_ASSOC);	    	    
-    if ($r=$stmt->fetch()){
-    $_SESSION['oldr']=$r;	
-?>        
-	    
-	    <div class="form">
-	        <form action="manage_account.php" method="post">
-<?php
-print("<table>\n<tr>\n<td>Username:</td>\n<td><input type=\"text\" name=\"username\" value=\"" . $r['username'] . "\"/></td>\n</tr>\n");
-print("<tr>\n<td>Password:</td>\n<td><input type=\"password\" name=\"password\" value=\"\"/></td>\n</tr>\n");
-print("<tr>\n<td>Name:</td>\n<td><input type=\"text\" name=\"u_name\" value=\"" . $r['u_name'] . "\"/></td>\n</tr>\n");
-print("<tr>\n<td>Address:</td>\n<td><input type=\"text\" name=\"address\" value=\"" . $r['Address'] . "\"/></td>\n</tr>\n");
-print("<tr>\n<td>City:</td>\n<td><input type=\"text\" name=\"city\" value=\"" . $r['City'] . "\"/></td>\n</tr>\n");
-print("<tr>\n<td>State:</td>\n<td><input type=\"text\" name=\"state\" maxlength=\"2\" value=\"" . $r['State'] . "\"/></td>\n</tr>\n");
-print("<tr>\n<td>Zipcode:</td>\n<td><input type=\"text\" name=\"zipcode\" maxlength=\"5\" value=\"" . $r['Zip'] . "\"/></td>\n</tr>\n");
-print("<tr>\n<td>Email:</td>\n<td><input type=\"text\" name=\"email\" value=\"" . $r['Email'] . "\"/></td>\n</tr>\n");
-print("<tr>\n<td>Phone:</td>\n<td><input type=\"text\" name=\"phone\" value=\"" . $r['Phone'] . "\"/></td>\n</tr>\n");
-?>
-	    </table>
-	        <input type="submit" value="submit" name="newsubmit"/></p>
-	        </form>
-    	    </div>
-	    </div>
-	</div>
-<?php
-    }
-    }
+	include("includes/edit_form.php");
 }
-    include("includes/footer.php");
+    
+
+    //include("includes/footer.php");
 ?>
 
 </body>

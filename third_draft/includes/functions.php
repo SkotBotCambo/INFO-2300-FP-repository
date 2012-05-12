@@ -15,17 +15,3 @@ function docheader($title){
 <body>
 	");
 }
-
-//queries and returns specialty cupcake names and their descriptions in an associative array
-//$specialties['sc_name'] = ['description']
-function queryspecialties() {
-	include("includes/mysql_config.php");
-	$mysqli = new mysqli($dbserver, $dbusername, $dbpassword, $dbname);
-	$spec_query = "SELECT sc_name, description FROM Spec_Cupcakes";
-	$sc_array = $mysqli->query($spec_query);
-	while ($row = $sc_array->fetch_assoc()){
-		$specialties[$row['sc_name']] = $row['description'];
-	}
-	$mysqli->close();
-	return $specialties;
-}

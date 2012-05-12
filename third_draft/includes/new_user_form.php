@@ -14,22 +14,18 @@
 		<tr>
 		    <td>Password:</td>
 		    <td><input type="password" name="newpassword" /></td>
-		    <td id="pw_error"></td>
 		</tr>
 		<tr>
 		    <td>Name:</td>
 		    <td><input type="text" name="u_name" /></td>
-		    <td id="name_error"></td>
 		</tr>
 		<tr>
 		    <td>Address:</td>
 		    <td><input type="text" name="address" /></td>
-		    <td id="address_error"></td>
 		</tr>
 		<tr>
 		    <td>City:</td>
 		    <td><input type="text" name="city" /></td>
-		    <td id="city_error"></td>
 		</tr>
 		<tr>
 		    <td>State:</td>
@@ -48,9 +44,12 @@
 		</tr>
 		<tr>
 			<td>Phone:</td>
-			<td><input type="text" name="phone" id="phone_num" onblur="check_phone()" /></td>
+			<td><input type="text" name="phone" id="phone_num" maxlength="10" onkeyup="check_phone()" /></td>
 			<td id="phone_error"></td>
 		</tr>
+		<tr>
+			<td></td> 
+			<td id="phone_format">e.g. 8005551212 (digits only)</td> 
 	    </table>
 	    <input type="submit" value="submit" name="newsubmit"/></p>
 	    </form>

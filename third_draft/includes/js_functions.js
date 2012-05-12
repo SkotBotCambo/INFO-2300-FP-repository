@@ -28,7 +28,7 @@ function check_email(){
 //function to check that phone number is properly formatted
 function check_phone(){
 	
-	patt=new RegExp("[0-9]{10}");
+	patt=new RegExp("^[0-9]+$");
 	
 	phone = document.getElementById("phone_num").value;
 	

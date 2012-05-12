@@ -3,9 +3,8 @@ http://colorschemedesigner.com/#0X329w0w0w0w0
 */
 
 body {
-background-image:url('../graphics/backgroundfade.png');
+background-image:url('../graphics/background.jpg');
 background-repeat:repeat-x;
-background-color:#d0bca1;
 }
 
 #main{
@@ -42,7 +41,6 @@ top:260px;
 }
 
 #menu div{
-background-image:url('../graphics/buttonback.png');
 width:180px;
 height:60px;
 text-align:center;
@@ -101,8 +99,6 @@ text-decoration:none;
 color: #000000;
 }
 
-
-/* home page */
 #maincontent {
 margin-top:100px;
 margin-right:550px;
@@ -117,81 +113,23 @@ box-shadow: 5px 5px 5px #888;
 }
 
 #mainpic {
-border-radius: 10px;
-}
-
-#mainbody {
-    height:600px;
-    width:1100px;
-    margin:auto;
-}
-
-#mainpar {
-    position:relative;
-top:-200px;
+position:relative;
+top:-130px;
 width:500px;
-height:375px;
 margin:0px 10px 10px 10px;
 float:right;
-border-radius: 10px;
--moz-border-radius:10px;
-box-shadow: 5px 5px 5px #888;
-
-    border:1px solid;
 }
 
 /* about the baker */
 #aboutbakermain {
-    font-family: 'Happy Monkey', cursive;
     color:#000000;
-    width:800px;
-    height:500px;
+    width:600px;
     margin:auto;
     position:relative;
-    top:60px;
+	top:60px;
     padding:0px 0px 60px 0px;
 }
 
-#bakerbody {
-    padding:15px;
-    width:400px;
-    border:1px solid #000;
-    background-color:#FFBF40;
-    font-family: 'Happy Monkey', cursive;
-    border-radius: 10px;
-    -moz-border-radius:10px;
-    box-shadow: 5px 5px 5px #888;
-}
-
-#contactbody{
-    padding:15px;
-    width:350px;
-    margin-top:15px;
-    margin-bottom:15px;
-    border:1px solid #000;
-    background-color:#FFBF40;
-    font-family: 'Happy Monkey', cursive;
-    border-radius: 10px;
-    -moz-border-radius:10px;
-    box-shadow: 5px 5px 5px #888;
-}
-
-#bakingpar {
-    position:relative;
-    right:30px;
-    width:300px;
-    height:345px;
-    margin:0px 10px 10px 10px;
-    float:right;
-    border-radius: 10px;
-    -moz-border-radius:10px;
-    box-shadow: 5px 5px 5px #888;
-    border:1px solid;
-}
-
-#bakingpic {
-border-radius: 10px;
-}
 
 /* cupcakes page */
 #browseform {
@@ -352,8 +290,6 @@ border-radius: 10px;
     padding:60px;
     height:600px;
     font-family: 'Happy Monkey', cursive;
-    width:1100px;
-    margin:auto;
 }
 
 #managetop{
@@ -385,7 +321,7 @@ border-radius: 10px;
 
 #updateinfo {
     padding:15px;
-    width:450px;
+    width:500px;
     border:1px solid #000;
     background-color:#FFBF40;
     font-family: 'Happy Monkey', cursive;
@@ -396,116 +332,30 @@ border-radius: 10px;
     margin:0 0 0 20px;
 }
 
-#instructions{
-opacity:0;
-border:1px solid #000;
-}
-
 /*place_an_order page */
 #creator{
 position:relative;
-top:60px;
+top:40px;
 width:100%;
+text-align:center;
 }
 
-#specialties{
-border:1px solid #000;
-}
-
-#icing{
-opacity:0;
-border:1px solid #000;
-}
-
-#flavor{
-opacity:0;
-border:1px solid #000;
-}
-
-#colors{
-opacity:0;
-border:1px solid #000;
+#creator div{
+margin:auto;
+background-color:#FFBF40;
+border-radius: 10px;
+-moz-border-radius:10px;
+box-shadow: 5px 5px 5px #888;
 }
 
 #display {
-position:relative;
 height:400px;
 width:400px;
-border:1px solid #000;
-position:relative;
-margin: 20px auto 0 auto;
-background-color:#FFBF40;
-border-radius: 10px;
--moz-border-radius:10px;
-box-shadow: 5px 5px 5px #888;
 }
 
-#display img{
-position:absolute;
-top:0px;
-left:0px;
+.form {
+width:400px;
 }
-
-#wrapper_back{
-z-index:0;
-}
-
-#wrapper_front {
-z-index:2;
-}
-
-#flavorpic{
-z-index:1;
-opacity: 0;
-}
-
-#icingpic{
-z-index:3;
-opacity: 0;
-}
-
-.colorsbox{
-background-color:#888;
-z-index: 4;
-width:30px;
-height:30px;
-margin-top:5px;
-border:1px solid #000;
-box-shadow: 5px 5px 5px #888;
-}
-
-#colorsdiv{
-position:absolute;
-top:10px;
-left:10px;
-}
-
-.orderform {
-width:650px;
-position:relative;
-margin: 20px auto 0 auto;
-background-color:#FFBF40;
-font-family: 'Happy Monkey', cursive;
-border-radius: 10px;
--moz-border-radius:10px;
-box-shadow: 5px 5px 5px #888;
-}
-
-.orderform input {
-margin-left:10px;
-}
-
-#submit{
-position:relative;
-left:50%;
-margin-left:-30px;
-}
-
-.orderform table{
-width:600px;
-margin:5px auto 10px auto
-}
-/*end of place_an_order page */
 
 #footer {
 position:relative;
@@ -521,4 +371,9 @@ box-shadow: 5px 5px 5px #888;
 
 #username_availability {
 	width: 400px;
-	}
+}
+
+#phone_format {
+	font-size: 70%;
+	color: #777;
+}

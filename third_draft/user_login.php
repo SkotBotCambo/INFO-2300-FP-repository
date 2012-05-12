@@ -8,11 +8,13 @@ docheader("Cupcake Country - User Login");
 include("includes/header.php");
 include("includes/navbar.php");
 include("includes/passwords.php");
+include("includes/mysql_config.php");
+
 print("<div id=\"user_login_body\">");
 //connection to database
-$mysqli= new PDO("mysql:host=localhost; dbname=info230_SP12FP_Cupcake_Warriors", $dbname, $dbpassword);
-$mysqli2= new PDO("mysql:host=localhost; dbname=info230_SP12FP_Cupcake_Warriors", $dbname, $dbpassword);
-$mysqli4= new PDO("mysql:host=localhost; dbname=info230_SP12FP_Cupcake_Warriors", $dbname, $dbpassword);
+$mysqli= new PDO("mysql:host=localhost; dbname=info230_SP12FP_Cupcake_Warriors", $dbusername, $dbpassword);
+$mysqli2= new PDO("mysql:host=localhost; dbname=info230_SP12FP_Cupcake_Warriors", $dbusername, $dbpassword);
+$mysqli4= new PDO("mysql:host=localhost; dbname=info230_SP12FP_Cupcake_Warriors", $dbusername, $dbpassword);
 
 //case that logs out user
 if(isset($_GET['logout']) && $_GET['logout']=='yes'){
@@ -79,36 +81,57 @@ if(isset($_GET['logout']) && $_GET['logout']=='yes'){
 	</div>
     <?php
     include("includes/new_user_form.php");
+	include("input_checking.php");
     print("</div>");
 	}
+	
+	include("input_checking.php");
 	
     if(isset($_POST['newsubmit'])){
 	$query = "INSERT INTO Users VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 0)";
             if ($stmt4= $mysqli4->prepare($query)) {
-		$newusername=$_POST['newusername'];
-		$newpassword=hash('sha256', $_POST['newpassword'].$gibberish);
-		$u_name=$_POST['u_name'];
-		$address=$_POST['address'];
-		$city=$_POST['city'];
-		$state=$_POST['state'];
-		$zipcode=$_POST['zipcode'];
-		$email=$_POST['email'];
-		$phone=$_POST['phone'];
-		// need to find a way to make $success false if any of the fields were left empty...
-                $success=$stmt4->execute(array($address, $city, $state, $zipcode, $phone, $email, $newusername, $u_name, $newpassword));
-                
-		/* check if their submitted username and password match one in the database */
-                if ($success){
-                    $sessionlog = TRUE;
-		    if(isset($_POST['username'])){
-			$_SESSION['logged_user'] = $_POST['username'];
-		    } else $_SESSION['logged_user'] = $_POST['newusername'];
-                } else {
-		    $sessionlog = FALSE;
-		    include("includes/new_user_form.php");
-                }
-            } else print("It didn't prepare the statement right.");
-    }
+		$newusername=sanatize($_POST['newusername']);
+		$newpassword=hash('sha256', sanatize($_POST['newpassword']).$gibberish);
+		$u_name=sanatize($_POST['u_name']);
+		$address=sanatize($_POST['address']);
+		$city=sanatize($_POST['city']);
+		$state=sanatize($_POST['state']);
+		$zipcode=sanatize($_POST['zipcode']);
+		$email=sanatize($_POST['email']);
+		$phone=sanatize($_POST['phone']);
+		
+			if (user_check($newusername, $u_name, $address, $city, $state, $zipcode, $email, $phone, true)){ 
+					$success=$stmt4->execute(array($address, $city, $state, $zipcode, $phone, $email, $newusername, $u_name, $newpassword));
+			
+			/* check if their submitted username and password match one in the database */
+					if ($success){
+						$sessionlog = TRUE;
+						if(isset($_POST['username'])){
+							$_SESSION['logged_user'] = $_POST['username'];
+						} else { 
+							$_SESSION['logged_user'] = $_POST['newusername'];
+						}
+					} else {
+						$sessionlog = FALSE;
+						include("includes/new_user_form.php");
+					}
+			} else {
+				print($_SESSION['error_feedback']);
+	?>
+				<form action="user_login.php" method="post">
+				<p>Username:</p><input type="text" name="username" /><br />
+				<p>Password:</p><input type="password" name="password" /><br />
+				<input type="submit" value="submit" name="submit1" />
+				</form>
+<?php
+				include("includes/new_user_form.php");
+				
+			}
+			}else { print("It didn't prepare the statement right.");
+				}
+			}
+		
+    
 	
 	
     /* if they successfully created a new account or successfully logged in */
